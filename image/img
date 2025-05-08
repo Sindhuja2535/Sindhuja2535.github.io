@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Temp 4</h1>
+    <h2>Images and Multimedia</h2>
+    <h4>Image without caption</h4>
+    <img src="images/1.PNG" alt="Frappuccino" width="200px" />
+    <hr />
+    <h4>Image with caption</h4>
+    <figure>
+      <img src="images/1.PNG" alt="Frappuccino" width="200" />
+      <figcaption>This is Frappuccino</figcaption>
+    </figure>
+    <hr />
+    
+  </body>
+</html>
