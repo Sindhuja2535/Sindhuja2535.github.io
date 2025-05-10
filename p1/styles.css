@@ -36,7 +36,7 @@ header {
     background-color: rgb(111, 172, 210);
     color: rgb(15, 80, 159);
     padding: 10px;
-    transition: transform .5s;
+    
 }
 
 header li {
@@ -62,7 +62,7 @@ header a{
 }
 
 .btn-signup{
-    background-color: rgb(125, 188, 202);
+    background-color: rgb(145, 166, 122);
     margin-top: 10px;
     padding:7px;
     font-size: 20px;
@@ -114,6 +114,7 @@ body {
     width: 250px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     text-align: left;
+    transition: transform .5s;
 }
 
 .project-card h3 {
@@ -165,7 +166,7 @@ body {
 }
 
 #about {
-    background-color: #2b98cb; /* light green */
+    background-color:  #d3dcad; /* light green */
 }
 
 #contact {
