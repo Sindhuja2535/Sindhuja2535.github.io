@@ -33,8 +33,8 @@ li {
 header {
     display: flex;
     justify-content: space-between;
-    background-color: rgb(111, 172, 210);
-    color: rgb(15, 80, 159);
+    background-color: rgb(232, 234, 230);
+    color: rgb(201, 185, 202);
     padding: 10px;
     
 }
@@ -158,19 +158,19 @@ body {
     padding: 30px 20px;
 }
 #home {
-    background-color: #2b98cb; /* light yellow */
+    background-color: #e1e7cb; /* light yellow */
 }
 
 #services {
-    background-color: #82b1c7; /* light blue */
+    background-color: #e1e7cb; /* light blue */
 }
 
 #about {
-    background-color:  #d3dcad; /* light green */
+    background-color:  #e1e7cb; /* light green */
 }
 
-#contact {
-    background-color: #82b1c7; /* light pink */
+#contact { 
+    background-color: #e1e7cb; /* light pink */
 }
 .box:hover {
     transform: scale(1.1,1.1);
