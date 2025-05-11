@@ -180,3 +180,10 @@ body {
     transform: scale(1.1,1.1);
 }
 
+.info-box:hover{
+    transform:scale(1.1,1.1);
+}
+.project-card:hover{
+    transform:scale(1.1,1.1);
+
+}
