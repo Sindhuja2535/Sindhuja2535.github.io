@@ -10,8 +10,8 @@
 header {
     display: flex;
     justify-content: space-between;
-    background-color: orange;
-    color: black;
+    background-color: #FFDAB9; /* pastel peach */
+    color: #4B4453; /* soft dark grey */
     padding: 10px;
 }
 
@@ -33,10 +33,9 @@ li {
 header {
     display: flex;
     justify-content: space-between;
-    background-color: rgb(232, 234, 230);
-    color: rgb(201, 185, 202);
+    background-color: #FFDAB9; /* pastel peach */
+    color: #4B4453; /* soft dark grey */
     padding: 10px;
-    
 }
 
 header li {
@@ -45,7 +44,7 @@ header li {
     padding: 5px;
 }
 
-header a{
+header a {
     text-decoration: none;
 }
 
@@ -61,13 +60,13 @@ header a{
     padding: 30px;
 }
 
-.btn-signup{
-    background-color: rgb(145, 166, 122);
+.btn-signup {
+    background-color: #D5E8D4; /* soft green */
     margin-top: 10px;
-    padding:7px;
+    padding: 7px;
     font-size: 20px;
     border-radius: 10px;
-    border:none;
+    border: none;
 }
 
 .summary {
@@ -82,13 +81,14 @@ header a{
 .title {
     font-size: 30px;
 }
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
 
 .projects-section {
-    background-color: #a7cfde; /* light lavender-like tone as seen */
+    background-color: #E6E6FA; /* pastel lavender */
     padding: 40px 20px;
     text-align: center;
 }
@@ -107,8 +107,8 @@ body {
 }
 
 .project-card {
-    background-color: rgb(36, 87, 121);
-    border: 2px solid rgb(14, 15, 17);
+    background-color: #D8BFD8; /* soft lilac */
+    border: 2px solid #B0B0B0;
     border-radius: 20px;
     padding: 20px;
     width: 250px;
@@ -130,17 +130,18 @@ body {
 .demo-button {
     padding: 8px 16px;
     border: 1px solid black;
-    background-color: rgb(121, 163, 187);
+    background-color: #AFCBDA; /* muted blue-grey */
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
 .demo-button:hover {
-    background-color: #537182;
+    background-color: #8FBAC8; /* slightly deeper pastel tone */
 }
+
 .info-box {
-    background-color: #f9f9f9;
+    background-color: #F5F5F5; /* light grey */
     border: 2px solid #ccc;
     border-radius: 15px;
     padding: 20px;
@@ -157,21 +158,23 @@ body {
 #services, #about, #contact {
     padding: 30px 20px;
 }
+
 #home {
-    background-color: #e1e7cb; /* light yellow */
+    background-color: #FFFACD; /* creamy yellow */
 }
 
 #services {
-    background-color: #e1e7cb; /* light blue */
+    background-color: #B0E0E6; /* pale blue */
 }
 
 #about {
-    background-color:  #e1e7cb; /* light green */
+    background-color: #D5E8D4; /* soft green */
 }
 
-#contact { 
-    background-color: #e1e7cb; /* light pink */
+#contact {
+    background-color: #FADADD; /* pastel pink */
 }
+
 .box:hover {
     transform: scale(1.1,1.1);
 }
