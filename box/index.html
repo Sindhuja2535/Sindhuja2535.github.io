@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fruit Boxes</title>
+  <style>
+    .container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+    }
+
+    .box {
+      width: 150px;
+      height: 200px;
+      border: 2px solid #1a1818;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .upper-half {
+      flex: 1;
+      background-color: #f8f1f1;
+    }
+
+    .lower-half {
+      flex: 1;
+      background-color: #f6f4f4;
+      display: flex;
+      
+      font-weight: bold;
+      font-family: Arial;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="box">
+    <div class="upper-half"></div>
+    <div class="lower-half" id="box1"></div>
+  </div>
+  <div class="box">
+    <div class="upper-half"></div>
+    <div class="lower-half" id="box2"></div>
+  </div>
+  <div class="box">
+    <div class="upper-half"></div>
+    <div class="lower-half" id="box3"></div>
+  </div>
+</div>
+
+<script>
+  // Set text in the lower halves
+  document.getElementById("box1").innerHTML = "Apple";
+  document.getElementById("box2").innerHTML = "Banana";
+  document.getElementById("box3").innerHTML = "Orange";
+</script>
+
+</body>
+</html>

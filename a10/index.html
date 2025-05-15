@@ -1,61 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Fruit Boxes</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fruit Store</title>
   <style>
-    .container {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 50px;
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
     }
 
-    .box {
-      width: 150px;
-      height: 200px;
-      border: 2px solid #555;
-      display: flex;
-      flex-direction: column;
+    h1 {
+      text-align: center;
     }
 
-    .upper-half {
-      flex: 1;
-      background-color: #f0f0f0;
-    }
-
-    .lower-half {
-      flex: 1;
-      background-color: #dcdcdc;
+    /* 🔵 Input Row Styling */
+    .input-row {
+      background-color: #dff0d8;
+      padding: 15px;
+      border-radius: 8px;
       display: flex;
-      align-items: center;
       justify-content: center;
-      font-weight: bold;
-      font-family: Arial;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .input-row input {
+      padding: 10px;
+      border: 1px solid #999;
+      border-radius: 5px;
+      width: 200px;
+    }
+
+    .input-row button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .row div {
+      background-color: rgb(188, 212, 190);
+      margin: 10px;
+      padding: 10px;
+      width: 200px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 2px 2px 6px #999;
+    }
+
+    .row img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="box">
-    <div class="upper-half"></div>
-    <div class="lower-half" id="box1"></div>
-  </div>
-  <div class="box">
-    <div class="upper-half"></div>
-    <div class="lower-half" id="box2"></div>
-  </div>
-  <div class="box">
-    <div class="upper-half"></div>
-    <div class="lower-half" id="box3"></div>
-  </div>
-</div>
+  <h1>Fruit Store</h1>
 
-<script>
-  // Set text in the lower halves
-  document.getElementById("box1").innerHTML = "Apple";
-  document.getElementById("box2").innerHTML = "Banana";
-  document.getElementById("box3").innerHTML = "Orange";
-</script>
+  <!-- 🔵 Input Form -->
+  <div class="input-row">
+    <input type="text" id="fruitName" placeholder="Enter fruit name" />
+    <input type="text" id="fruitUrl" placeholder="Enter image URL" />
+    <button onclick="addFruit()">Add Fruit</button>
+  </div>
+
+  <!-- 🔵 Fruit Display Area -->
+  <div id="container" class="row"></div>
+
+  <script>
+    const products = [
+      { id: 1, name: "Apple", price: 250, imgUrl: "https://picsum.photos/id/12/200/200" },
+      { id: 2, name: "Orange", price: 100, imgUrl: "https://picsum.photos/id/14/200/200" },
+      { id: 3, name: "Mango", price: 80, imgUrl: "https://picsum.photos/id/13/200/200" },
+    ];
+
+    function renderProducts() {
+      let str = "";
+      products.forEach((value) => {
+        str += `
+          <div>
+            <img src="${value.imgUrl}" alt="${value.name}" />
+            <h2>${value.name}</h2>
+            <h3>₹${value.price}</h3>
+            <button>Add to Cart</button>
+          </div>`;
+      });
+      document.getElementById("container").innerHTML = str;
+    }
+
+    function addFruit() {
+      const name = document.getElementById("fruitName").value.trim();
+      const url = document.getElementById("fruitUrl").value.trim();
+
+      if (name && url) {
+        const newFruit = {
+          id: products.length + 1,
+          name: name,
+          price: Math.floor(Math.random() * 100) + 50, // random price for demo
+          imgUrl: url
+        };
+        products.push(newFruit);
+        renderProducts();
+
+        // Clear input fields
+        document.getElementById("fruitName").value = "";
+        document.getElementById("fruitUrl").value = "";
+      } else {
+        alert("Please enter both fruit name and image URL.");
+      }
+    }
+
+    // Initial render
+    renderProducts();
+  </script>
 
 </body>
 </html>

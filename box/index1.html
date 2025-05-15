@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+   .row{
+        display:'flex'
+        
+    }
+    .rowdiv{
+        background-color: orange;
+        margin :10px;
+        padding:10px;
+        width: 200px;;
+    }
+</style>
+   
+  
+</head>
+<body>
+  <h1>array objects</h1> 
+   <div> id="container"</div>
+   <script>
+     const product =[
+    {id :1,name :"apple",price :250,imgUrl:},
+    {id :2,name :"apple",price :250},
+    {id :3,name :"apple",price :250}];
+
+    let str ="";
+    product.map((value)=>{
+        str += <div>
+            <h2>${value.name}</h2>
+            <h3>${value.price}</h3>
+            </div>;
+
+    });
+container.innetHTML=str
+    product</script>
+</body>
+</html>
