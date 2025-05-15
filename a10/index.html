@@ -3,100 +3,195 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fruit Availability Checker</title>
+  <title>Fruit Gallery</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: rgb(158, 192, 158);
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #efe1ee, #d5b8ce);
     }
 
-    .container {
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    header {
+      background: linear-gradient(to right, #f9b8ec, #fcf9fd);
+      color: rgb(72, 25, 66);
+      padding: 20px;
       text-align: center;
-      width: 300px;
-    }
-
-    h2 {
-      margin-bottom: 20px;
-      color: #3d703d;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      margin-bottom: 15px;
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #094918;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    button:hover {
-      background-color: #525bac;
-    }
-
-    #result {
-      margin-top: 15px;
+      font-size: 2.5rem;
       font-weight: bold;
-      font-size: 16px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .form-section {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .form-section input {
+      padding: 7px;
+      margin: 7px;
+      border-radius: 9px;
+      border: 1px solid #060106;
+      font-size: 1rem;
+      width: 200px;
+    }
+
+    .form-section button {
+      padding: 10px 20px;
+      background-color: #a3539a;
+      color: rgb(249, 244, 250);
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-section button:hover {
+      background-color: #810b73;
+    }
+
+    .cards-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 30px 20px;
+    }
+
+    .fruit-card {
+      width: 220px;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(253, 5, 5, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .fruit-card:hover {
+      transform: scale(1.05);
+    }
+
+    .fruit-card img {
+      width: 100%;
+      
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding:10px;
+      text-align: center;
+    }
+
+    .card-content .fruit-name {
+      font-size: 1.2rem;
+      color: #d3703b;
+      margin-bottom: 0px;
+    }
+
+    .card-content .fruit-price {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #4caf50;
+    }
+
+    .delete-btn {
+      margin-top: 10px;
+      padding: 8px 14px;
+      background-color: #e06f67;
+      border: none;
+      color: white;
+      font-size: 0.9rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .delete-btn:hover {
+      background-color: #c62828;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h2>Check Fruit Availability</h2>
-    <input type="text" id="fruitInput" placeholder="Enter fruit name">
-    <button id="checkBtn">Check</button>
-    <p id="result"></p>
+  <header>Fruit Gallery</header>
+
+  <div class="form-section">
+    <input type="text" id="fruitName" placeholder="Enter fruit name">
+    <input type="text" id="fruitImage" placeholder="Enter image URL">
+    <button onclick="addFruit()">Add Fruit</button>
   </div>
 
+  <div class="cards-wrapper" id="cardContainer"></div>
+
   <script>
-    const fruits = ["apple", "banana", "mango", "grapes", "orange", "kiwi"];
+    const fruits = [
+      {
+        name: "Apple",
+        price: 120,
+        image: "https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg"
+      },
+      {
+        name: "Banana",
+        price: 40,
+        image: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg"
+      },
+      {
+        name: "Orange",
+        price: 60,
+        image: "https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange-Fruit-Pieces.jpg"
+      },
+      {
+        name: "Mango",
+        price: 100,
+        image: "https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg"
+      }
+    ];
 
-    const checkAvailability = () => {
-      const input = document.getElementById("fruitInput").value.trim().toLowerCase();
-      const result = document.getElementById("result");
+    const container = document.getElementById("cardContainer");
 
-      if (input === "") {
-        result.textContent = "Please enter a fruit name.";
-        result.style.color = "red";
+    function renderCard(fruit) {
+      const card = document.createElement("div");
+      card.className = "fruit-card";
+
+      card.innerHTML = `
+        <img src="${fruit.image}" alt="${fruit.name}">
+        <div class="card-content">
+          <div class="fruit-name">${fruit.name}</div>
+          <div class="fruit-price">${fruit.price !== 'N/A' ? '$' + fruit.price : 'N/A'}</div>
+          <button class="delete-btn">Delete</button>
+        </div>
+      `;
+
+      card.querySelector(".delete-btn").addEventListener("click", () => {
+        card.remove();
+      });
+
+      container.appendChild(card);
+    }
+
+    function addFruit() {
+      const name = document.getElementById("fruitName").value.trim();
+      const image = document.getElementById("fruitImage").value.trim();
+
+      if (!name || !image) {
+        alert("Please enter both fruit name and image URL.");
         return;
       }
 
-      if (fruits.includes(input)) {
-        result.textContent = `${input.charAt(0).toUpperCase() + input.slice(1)} is available!`;
-        result.style.color = "green";
-      } else {
-        result.textContent = `${input.charAt(0).toUpperCase() + input.slice(1)} is not available!!`;
-        result.style.color = "crimson";
-      }
-    };
+      const newFruit = {
+        name: name,
+        price: "N/A",
+        image: image
+      };
 
-    document.getElementById("checkBtn").addEventListener("click", checkAvailability);
+      renderCard(newFruit);
+
+      document.getElementById("fruitName").value = "";
+      document.getElementById("fruitImage").value = "";
+    }
+
+    fruits.forEach(renderCard);
   </script>
 
 </body>
