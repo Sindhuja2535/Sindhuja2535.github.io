@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fruit Availability Checker</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(179, 202, 179);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 300px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #087011d5;
+      font-style: italic;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #525bac;
+    }
+
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Check Fruit Availability</h2>
+    <input type="text" id="fruitInput" placeholder="Enter fruit name">
+    <button id="checkBtn">Check</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    const fruits = ["apple", "banana", "mango", "grapes", "orange", "kiwi"];
+
+    const checkAvailability = () => {
+      const input = document.getElementById("fruitInput").value.trim().toLowerCase();
+      const result = document.getElementById("result");
+
+      if (input === "") {
+        result.textContent = "Please enter a fruit name.";
+        result.style.color = "red";
+        return;
+      }
+
+      if (fruits.includes(input)) {
+        result.textContent = `${input.charAt(0).toUpperCase() + input.slice(1)} is available!`;
+        result.style.color = "green";
+      } else {
+        result.textContent = `${input.charAt(0).toUpperCase() + input.slice(1)} is not available!!`;
+        result.style.color = "crimson";
+      }
+    };
+
+    document.getElementById("checkBtn").addEventListener("click", checkAvailability);
+  </script>
+
+</body>
+</html>
