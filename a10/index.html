@@ -3,128 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fruit Store</title>
+  <title>Fruit Availability Checker</title>
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-    /* 🔵 Input Row Styling */
-    .input-row {
-      background-color: #dff0d8;
-      padding: 15px;
-      border-radius: 8px;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 30px;
+      background-color: rgb(158, 192, 158);
+      font-family: 'Segoe UI', sans-serif;
     }
 
-    .input-row input {
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 300px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #3d703d;
+    }
+
+    input {
+      width: 100%;
       padding: 10px;
-      border: 1px solid #999;
-      border-radius: 5px;
-      width: 200px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
     }
 
-    .input-row button {
+    button {
       padding: 10px 20px;
-      background-color: #4CAF50;
+      font-size: 16px;
+      background-color: #094918;
       color: white;
       border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .row {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .row div {
-      background-color: rgb(188, 212, 190);
-      margin: 10px;
-      padding: 10px;
-      width: 200px;
-      text-align: center;
       border-radius: 8px;
-      box-shadow: 2px 2px 6px #999;
+      cursor: pointer;
+      transition: background 0.3s;
     }
 
-    .row img {
-      width: 100%;
-      height: auto;
-      border-radius: 5px;
+    button:hover {
+      background-color: #525bac;
+    }
+
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 16px;
     }
   </style>
 </head>
 <body>
 
-  <h1>Fruit Store</h1>
-
-  <!-- 🔵 Input Form -->
-  <div class="input-row">
-    <input type="text" id="fruitName" placeholder="Enter fruit name" />
-    <input type="text" id="fruitUrl" placeholder="Enter image URL" />
-    <button onclick="addFruit()">Add Fruit</button>
+  <div class="container">
+    <h2>Check Fruit Availability</h2>
+    <input type="text" id="fruitInput" placeholder="Enter fruit name">
+    <button id="checkBtn">Check</button>
+    <p id="result"></p>
   </div>
 
-  <!-- 🔵 Fruit Display Area -->
-  <div id="container" class="row"></div>
-
   <script>
-    const products = [
-      { id: 1, name: "Apple", price: 250, imgUrl: "https://picsum.photos/id/12/200/200" },
-      { id: 2, name: "Orange", price: 100, imgUrl: "https://picsum.photos/id/14/200/200" },
-      { id: 3, name: "Mango", price: 80, imgUrl: "https://picsum.photos/id/13/200/200" },
-    ];
+    const fruits = ["apple", "banana", "mango", "grapes", "orange", "kiwi"];
 
-    function renderProducts() {
-      let str = "";
-      products.forEach((value) => {
-        str += `
-          <div>
-            <img src="${value.imgUrl}" alt="${value.name}" />
-            <h2>${value.name}</h2>
-            <h3>₹${value.price}</h3>
-            <button>Add to Cart</button>
-          </div>`;
-      });
-      document.getElementById("container").innerHTML = str;
-    }
+    const checkAvailability = () => {
+      const input = document.getElementById("fruitInput").value.trim().toLowerCase();
+      const result = document.getElementById("result");
 
-    function addFruit() {
-      const name = document.getElementById("fruitName").value.trim();
-      const url = document.getElementById("fruitUrl").value.trim();
-
-      if (name && url) {
-        const newFruit = {
-          id: products.length + 1,
-          name: name,
-          price: Math.floor(Math.random() * 100) + 50, // random price for demo
-          imgUrl: url
-        };
-        products.push(newFruit);
-        renderProducts();
-
-        // Clear input fields
-        document.getElementById("fruitName").value = "";
-        document.getElementById("fruitUrl").value = "";
-      } else {
-        alert("Please enter both fruit name and image URL.");
+      if (input === "") {
+        result.textContent = "Please enter a fruit name.";
+        result.style.color = "red";
+        return;
       }
-    }
 
-    // Initial render
-    renderProducts();
+      if (fruits.includes(input)) {
+        result.textContent = `${input.charAt(0).toUpperCase() + input.slice(1)} is available!`;
+        result.style.color = "green";
+      } else {
+        result.textContent = `${input.charAt(0).toUpperCase() + input.slice(1)} is not available!!`;
+        result.style.color = "crimson";
+      }
+    };
+
+    document.getElementById("checkBtn").addEventListener("click", checkAvailability);
   </script>
 
 </body>
