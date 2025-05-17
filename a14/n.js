@@ -6,13 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        const student ={name:"sindhuja"}
-        console.log(student.name);
-        console.log(student["name"])
-
-        
-    </script>
-    
+    <h1>json</h1>
 </body>
 </html>
