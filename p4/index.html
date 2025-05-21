@@ -5,21 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bank ATM</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="atm-box">
-    <h1>Bank ATM</h1>
-    <hr />
-    <input type="text" id="cardNumber" placeholder="Enter Card Number" />
-    <input type="password" id="pin" placeholder="Enter PIN" />
-    <button onclick="login()">Submit</button>
-    <p id="errorMsg"></p>
-  </div>
+  <h1> ATM</h1>
+  <section class="page">
+    <form id="loginForm">
+      <label for="cart">Card Number:</label>
+      <input type="text" id="cart" name="cart" required />
+      <label for="pin">PIN:</label>
+      <input type="password" id="pin" name="pin" required />
+      <button type="submit">Login</button>
+    </form>
 
-  <div id="welcomeBox" class="welcome-box" style="display:none;">
-    <h2>Welcome, <span id="userName"></span>!</h2>
-  </div>
-
+    <div id="atm-actions" style="display:none; margin-top:20px;">
+      <h3 id="user-name"></h3>
+      <p id="balance"></p>
+      <select id="action-select">
+        <option value="">-- Select Action --</option>
+        <option value="deposit">Deposit</option>
+        <option value="withdraw">Withdraw</option>
+        <option value="transfer">Fund Transfer</option>
+      </select>
+      <div id="action-form"></div>
+      <input type="number" id="amount" placeholder="Enter amount" min="1" />
+      <button id="do-action">Submit</button>
+    </div>
+  </section>
   <script src="index.js"></script>
 </body>
 </html>

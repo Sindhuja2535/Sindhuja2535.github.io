@@ -1,47 +1,71 @@
 body {
+  background: linear-gradient(135deg, #5b247a, #1bcedf);
+  min-height: 100vh;
   margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #ffecd2, #fcb69f);
+  font-family: 'Roboto', sans-serif;
+  color: #ffffff;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100vh;
+  justify-content: center;
 }
 
-.atm-box, .welcome-box {
-  background-color: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  width: 300px;
+h1 {
+  margin-top: 40px;
+  font-size: 2.8em;
+  color: #ffe600;
+  text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
 }
 
-input {
-  width: 90%;
+.page {
+  background: #ffffff;
+  color: #222;
+  padding: 32px 28px;
+  border-radius: 20px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+  margin-top: 24px;
+  min-width: 320px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+label {
+  font-size: 1.1em;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select {
   padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
+  border: 1px solid #5b247a;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 1em;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus,
+select:focus {
+  border: 2px solid #1bcedf;
 }
 
 button {
-  padding: 10px 20px;
-  background-color: teal;
-  color: white;
+  background: #5b247a;
+  color: #fff;
   border: none;
   border-radius: 8px;
-  font-size: 16px;
+  padding: 12px;
+  font-size: 1.1em;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
 button:hover {
-  background-color: darkslategray;
-}
-
-#errorMsg {
-  color: red;
-  margin-top: 10px;
+  background: #1bcedf;
+  color: #000;
 }
