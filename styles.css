@@ -1,0 +1,70 @@
+/* General reset and layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #f9f9f9, #e0eafc);
+    color: #2c3e50;
+    padding: 40px;
+    max-width: 900px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+/* Heading styles */
+h1 {
+    font-size: 3rem;
+    color: #34495e;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #16a085;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #8e44ad;
+    margin-top: 30px;
+    border-bottom: 2px solid #8e44ad;
+    padding-bottom: 5px;
+}
+
+/* List styling */
+ol {
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Link styling */
+a {
+    text-decoration: none;
+    color: #e67e22;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #d35400;
+    text-decoration: underline;
+}
+
+/* Optional: Footer */
+footer {
+    text-align: center;
+    margin-top: 60px;
+    color: #aaa;
+    font-size: 0.9rem;
+}
