@@ -1,70 +1,133 @@
-/* General reset and layout */
+/* Reset and box-sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Royal Purple Palette */
+:root {
+    --bg-light: #f4f0fa;
+    --accent: #9b59b6;
+    --accent-dark: #8e44ad;
+    --text-dark: #2c003e;
+}
+
+/* Body style */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #f9f9f9, #e0eafc);
-    color: #2c3e50;
-    padding: 40px;
+    background: linear-gradient(145deg, var(--bg-light), #e5ddf3);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    padding: 50px 20px;
     max-width: 900px;
     margin: auto;
-    line-height: 1.6;
+    text-align: center;
+    line-height: 1.8;
 }
 
-/* Heading styles */
-h1 {
+/* Logo style */
+.logo {
     font-size: 3rem;
-    color: #34495e;
-    text-align: center;
+    font-weight: bold;
+    color: var(--accent-dark);
     margin-bottom: 10px;
+    position: relative;
 }
 
-h2 {
-    font-size: 1.8rem;
-    color: #16a085;
-    text-align: center;
+.logo::after {
+    content: '★';
+    position: absolute;
+    right: -25px;
+    top: 0;
+    color: var(--accent);
+    animation: sparkle 1.5s infinite ease-in-out;
+}
+
+/* Sparkle animation */
+@keyframes sparkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* Subtitle style */
+.subtitle {
+    font-size: 1.5rem;
+    color: #6c3483;
     margin-bottom: 40px;
 }
 
+/* Section headings */
 h3 {
-    font-size: 1.5rem;
-    color: #8e44ad;
-    margin-top: 30px;
-    border-bottom: 2px solid #8e44ad;
+    font-size: 1.4rem;
+    color: var(--accent-dark);
+    margin-top: 40px;
+    border-bottom: 2px dashed var(--accent);
+    display: inline-block;
     padding-bottom: 5px;
 }
 
 /* List styling */
 ol {
+    text-align: left;
+    margin: 20px auto;
     padding-left: 20px;
-    margin-top: 15px;
+    max-width: 500px;
 }
 
 li {
     margin-bottom: 10px;
+    transition: transform 0.3s ease;
 }
 
-/* Link styling */
+li:hover {
+    transform: translateX(10px);
+}
+
+/* Link styles */
 a {
+    color: var(--accent-dark);
     text-decoration: none;
-    color: #e67e22;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
-a:hover {
-    color: #d35400;
-    text-decoration: underline;
+a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
 }
 
-/* Optional: Footer */
+a:hover::after {
+    width: 100%;
+}
+
+/* Button */
+button {
+    background-color: var(--accent-dark);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    margin-top: 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(142, 68, 173, 0.4);
+}
+
+/* Footer */
 footer {
-    text-align: center;
     margin-top: 60px;
-    color: #aaa;
     font-size: 0.9rem;
+    color: #6e5c85;
 }
