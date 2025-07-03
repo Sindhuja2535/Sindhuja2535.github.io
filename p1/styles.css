@@ -1,189 +1,209 @@
-* {
-    margin: 0;
+/* GLOBAL STYLES */
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #fdf7ff;
+  color: #333;
+  line-height: 1.6;
 }
 
-.container {
-    width: 100%;
-    margin: auto
-}
-
+/* HEADER */
 header {
-    display: flex;
-    justify-content: space-between;
-    background-color: #D0E7F9; /* very light blue */
-    color: #2C3E50; /* dark desaturated blue */
-    padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 20px;
+  flex-wrap: wrap;
 }
 
-li {
-    display: inline-block;
-    font-size: 20px;
-    padding: 5px;
+header h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5rem;
+  color: #7c4dff;
+  margin: 0;
 }
 
-* {
-    margin: 0;
-}
-
-.container {
-    width: 100%;
-    margin: auto
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    background-color: #D0E7F9; /* very light blue */
-    color: #2C3E50; /* dark desaturated blue */
-    padding: 10px;
-}
-
-header li {
-    display: inline-block;
-    font-size: 20px;
-    padding: 5px;
+header ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
 }
 
 header a {
-    text-decoration: none;
+  text-decoration: none;
+  color: #7c4dff;
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-.row {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 20px;
+header a:hover {
+  color: #4a148c;
+  transform: scale(1.05);
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* HOME SECTION */
+#home .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 80px;
 }
 
 .box {
-    width: 500px;
-    padding: 30px;
-}
-
-.btn-signup {
-    background-color: #A3C7D6; /* soft pastel blue */
-    margin-top: 10px;
-    padding: 7px;
-    font-size: 20px;
-    border-radius: 10px;
-    border: none;
-}
-
-.summary {
-    font-size: 20px;
-    margin-top: 10px;
-}
-
-.image {
-    border-radius: 30px;
+  flex: 1 1 45%;
 }
 
 .title {
-    font-size: 30px;
+  font-size: 2rem;
+  color: #9c27b0;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+.summary {
+  font-size: 1rem;
+  margin-top: 15px;
+  margin-bottom: 20px;
 }
 
+.image {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* BUTTON */
+.btn-signup,
+.demo-button {
+  background-color: #e1bee7;
+  border: none;
+  padding: 10px 20px;
+  color: #4a148c;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-signup:hover,
+.demo-button:hover {
+  background-color: #ce93d8;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(154, 39, 176, 0.3);
+}
+
+/* PROJECTS */
 .projects-section {
-    background-color: #E6F0FA; /* pastel icy blue */
-    padding: 40px 20px;
-    text-align: center;
+  margin-top: 60px;
+  text-align: center;
 }
 
 .section-title {
-    font-size: 28px;
-    margin-bottom: 30px;
-    font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #6a1b9a;
 }
 
 .project-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
 }
 
 .project-card {
-    background-color: #C7DBE6; /* soft steel blue */
-    border: 2px solid #A0B8C4;
-    border-radius: 20px;
-    padding: 20px;
-    width: 250px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    transition: transform .5s;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #f3e5f5;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(124, 77, 255, 0.2);
 }
 
 .project-card h3 {
-    margin-top: 0;
-    font-size: 20px;
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #7b1fa2;
 }
 
-.project-card p {
-    font-size: 14px;
-    margin: 10px 0 20px;
-}
-
-.demo-button {
-    padding: 8px 16px;
-    border: 1px solid #2C3E50;
-    background-color: #B7D7E8; /* blue-grey pastel */
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    transition: transform .5s;
-}
-
-.demo-button:hover {
-    background-color: #96C3D8; /* slightly deeper pastel blue */
+/* SERVICES, ABOUT, CONTACT */
+.section-heading {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #6a1b9a;
+  margin-top: 70px;
+  margin-bottom: 30px;
 }
 
 .info-box {
-    background-color: #F0F6FA; /* off-white blue tone */
-    border: 2px solid #C5DDE8;
-    border-radius: 15px;
-    padding: 20px;
-    width: 80%;
-    margin: auto;
-    margin-bottom: 30px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background: #f3e5f5;
+  padding: 20px;
+  max-width: 700px;
+  margin: 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+  transition: all 0.3s ease;
 }
 
-.info-box ul {
-    padding-left: 20px;
+.info-box:hover {
+  transform: translateY(-3px);
 }
 
-#services, #about, #contact {
-    padding: 30px 20px;
+/* ABOUT Skills List */
+#about ul {
+  list-style: circle;
+  padding-left: 40px;
+  text-align: left;
 }
 
-#home {
-    background-color: #EBF5FB; /* icy pale blue */
+/* CONTACT */
+#contact .info-box p {
+  margin: 8px 0;
+  font-size: 1rem;
 }
 
-#services {
-    background-color: #D6EAF8; /* soft blue */
+/* FOOTER */
+footer {
+  margin-top: 60px;
+  padding: 20px;
+  text-align: center;
+  background: #f3e5f5;
+  color: #5e35b1;
+  font-size: 14px;
 }
 
-#about {
-    background-color: #D4E6F1; /* light sky blue */
-}
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+    text-align: center;
+  }
 
-#contact {
-    background-color: #CCDDEE; /* gentle steel blue */
-}
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
 
-.box:hover {
-    transform: scale(1.1,1.1);
-}
-
-.info-box:hover{
-    transform:scale(1.1,1.1);
-}
-.project-card:hover{
-    transform:scale(1.1,1.1);
-
+  .project-cards {
+    grid-template-columns: 1fr;
+  }
 }
